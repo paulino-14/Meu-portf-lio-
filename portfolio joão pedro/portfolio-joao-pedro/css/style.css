@@ -1,0 +1,136 @@
+/* Paleta e fontes em variáveis. Tema escuro é o padrão. */
+:root {
+  --bg: #1e1e1e;
+  --painel: #252526;
+  --borda: #3c3c3c;
+  --texto: #d4d4d4;
+  --suave: #a0a0a0;
+  --destaque: #4fc1ff;
+  --barra: #007acc;
+  --barra-texto: #ffffff;
+  --erro: #ff9b9b;
+  --ok: #7ed48b;
+  --fonte-codigo: "JetBrains Mono", Consolas, monospace;
+  --fonte-texto: "Segoe UI", system-ui, sans-serif;
+}
+body.tema-claro {
+  --bg: #ffffff;
+  --painel: #f3f3f3;
+  --borda: #cfcfcf;
+  --texto: #1f1f1f;
+  --suave: #555555;
+  --destaque: #00539b;
+  --barra: #005a9e;
+  --erro: #b00020;
+  --ok: #1b6e2e;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--texto); font: 1rem/1.7 var(--fonte-texto); }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, .logo, .abas, .comentario, .botao, label { font-family: var(--fonte-codigo); }
+a { color: var(--destaque); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--destaque); outline-offset: 2px;
+}
+
+/* Barra de título e abas (Flexbox) */
+.barra-titulo {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem;
+  padding: .5rem 1rem; background: var(--painel); border-bottom: 1px solid var(--borda);
+}
+.logo { margin-right: auto; font-weight: 700; color: var(--texto); text-decoration: none; }
+.logo span { color: var(--destaque); }
+.btn-icone {
+  width: 2.5rem; height: 2.5rem; font-size: 1.2rem; cursor: pointer;
+  background: transparent; color: var(--texto); border: 1px solid var(--borda); border-radius: 6px;
+  transition: background .2s, border-color .2s;
+}
+.btn-icone:hover { background: var(--bg); border-color: var(--destaque); }
+.abas { display: none; flex-direction: column; width: 100%; }
+.abas.aberto { display: flex; }
+.abas a {
+  padding: .6rem .75rem; color: var(--suave); text-decoration: none; font-size: .9rem;
+  border-left: 3px solid transparent; transition: color .2s, background .2s;
+}
+.abas a:hover, .abas a:focus-visible { color: var(--texto); background: var(--bg); border-left-color: var(--destaque); }
+
+/* Área do editor */
+.editor { max-width: 60rem; margin: 0 auto; padding: 1rem 1.25rem 3rem; }
+section { padding: 2.5rem 0; border-bottom: 1px solid var(--borda); }
+h1 { font-size: 1.9rem; line-height: 1.2; margin: .25rem 0 .75rem; }
+h2 { font-size: 1.4rem; margin: 0 0 1rem; }
+h2::before { content: "// "; color: var(--suave); }
+h3 { font-size: 1.1rem; margin: .75rem 0 .25rem; }
+p { max-width: 65ch; }
+.comentario { color: var(--ok); margin: 0; }
+.lead { font-size: 1.1rem; color: var(--suave); }
+
+.hero { display: flex; flex-direction: column; gap: 1.5rem; }
+.avatar { width: 7.5rem; height: 7.5rem; border-radius: 16px; object-fit: cover; border: 2px solid var(--destaque); }
+.botao {
+  display: inline-block; padding: .7rem 1.2rem; cursor: pointer; font-size: .95rem;
+  background: var(--barra); color: var(--barra-texto); border: 2px solid var(--barra); border-radius: 4px; text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.botao:hover { background: transparent; color: var(--destaque); }
+
+/* Habilidades */
+.habilidades { list-style: none; margin: 0; padding: 0; border: 1px solid var(--borda); border-radius: 6px; }
+.habilidades li { display: flex; justify-content: space-between; gap: 1rem; padding: .6rem 1rem; }
+.habilidades li + li { border-top: 1px solid var(--borda); }
+.nivel { font-family: var(--fonte-codigo); font-size: .85rem; color: var(--destaque); }
+
+/* Projetos (Grid) */
+.grade-projetos { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+.card { background: var(--painel); border: 1px solid var(--borda); border-radius: 6px; padding: 1rem; }
+.card img { border-radius: 4px; }
+.card p { margin: .25rem 0; }
+.tecnologias { font-family: var(--fonte-codigo); font-size: .85rem; color: var(--suave); }
+
+/* Formulário */
+form { display: grid; gap: 1rem; max-width: 36rem; }
+.campo { display: flex; flex-direction: column; gap: .35rem; }
+input[type="text"], input[type="email"], textarea {
+  width: 100%; padding: .65rem .75rem; font: inherit; color: var(--texto);
+  background: var(--painel); border: 1px solid var(--borda); border-radius: 4px; transition: border-color .2s;
+}
+input:hover, textarea:hover { border-color: var(--destaque); }
+.campo.invalido input, .campo.invalido textarea { border-color: var(--erro); }
+.campo-check { flex-direction: row; flex-wrap: wrap; align-items: center; }
+.campo-check label { flex: 1; font-size: .9rem; }
+.campo-check input { width: 1.2rem; height: 1.2rem; }
+.campo-check .erro { flex-basis: 100%; }
+.erro { margin: 0; color: var(--erro); font-size: .9rem; }
+.sucesso { margin: 0; color: var(--ok); }
+.aviso { margin: 0; font-size: .85rem; color: var(--suave); }
+.links { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+
+/* Rodapé como barra de status */
+.barra-status {
+  display: flex; justify-content: space-between; gap: 1rem; padding: .6rem 1rem;
+  background: var(--barra); color: var(--barra-texto); font: .85rem var(--fonte-codigo);
+}
+.barra-status a { color: var(--barra-texto); }
+
+/* Tablet */
+@media (min-width: 768px) {
+  #btnMenu { display: none; }
+  .barra-titulo { flex-wrap: nowrap; padding: 0 1rem; }
+  .abas { display: flex; flex-direction: row; width: auto; order: 2; margin-left: 1rem; }
+  .abas a { padding: .85rem 1rem; border-left: 0; border-top: 3px solid transparent; }
+  .abas a:hover, .abas a:focus-visible { border-top-color: var(--destaque); }
+  .logo { margin-right: 0; }
+  #btnTema { order: 3; margin-left: auto; }
+  .hero { flex-direction: row; align-items: center; }
+  h1 { font-size: 2.4rem; }
+  .grade-projetos { grid-template-columns: repeat(2, 1fr); }
+}
+/* Desktop */
+@media (min-width: 1024px) {
+  .editor { padding-inline: 2rem; }
+  .grade-projetos { grid-template-columns: repeat(3, 1fr); }
+}
