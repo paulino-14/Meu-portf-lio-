@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>João Pedro | Portfólio Front-end</title>
+  <meta name="description" content="Portfólio de João Pedro de Souza Paulino, estudante de desenvolvimento front-end em Natal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="barra-titulo" id="topo">
+    <a class="logo" href="#inicio">joaopedro<span>.dev</span></a>
+    <button class="btn-icone" id="btnTema" type="button" aria-label="Alternar tema claro e escuro">◐</button>
+    <button class="btn-icone" id="btnMenu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuPrincipal">☰</button>
+    <nav class="abas" id="menuPrincipal" aria-label="Seções do portfólio">
+      <a href="#inicio">inicio.html</a>
+      <a href="#sobre">sobre.md</a>
+      <a href="#habilidades">habilidades.js</a>
+      <a href="#projetos">projetos.json</a>
+      <a href="#contato">contato.css</a>
+    </nav>
+  </header>
+
+  <main class="editor">
+    <section id="inicio" class="hero">
+      <img class="avatar" src="img/foto.jpg" width="120" height="120" alt="Foto de João Pedro, jovem de cabelo cacheado e camiseta preta">
+      <div>
+        <p class="comentario" id="saudacao">// Olá</p>
+        <h1>Eu sou João Pedro</h1>
+        <p class="lead">Estudante de front-end em Natal, construindo interfaces simples, rápidas e acessíveis.</p>
+        <a class="botao" href="#projetos">Ver projetos</a>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre mim</h2>
+      <p>Sou João Pedro de Souza Paulino, tenho 17 anos e moro em Natal. Me interessei pela área de tecnologia ao perceber que dá para criar, com código, as ferramentas que a gente usa todos os dias. Desde então gosto de transformar uma ideia ou um desenho no Figma em uma página que funciona.</p>
+      <p>Hoje estou estudando e praticando HTML, CSS e JavaScript, e quero aprender React e acessibilidade a fundo. Meu objetivo é conquistar meu primeiro estágio em desenvolvimento front-end e evoluir junto com uma equipe.</p>
+    </section>
+
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <ul class="habilidades">
+        <li><span>HTML</span><span class="nivel">confortável</span></li>
+        <li><span>CSS (Flexbox e Grid)</span><span class="nivel">praticando</span></li>
+        <li><span>JavaScript</span><span class="nivel">praticando</span></li>
+        <li><span>Figma</span><span class="nivel">praticando</span></li>
+        <li><span>Git e GitHub</span><span class="nivel">iniciante</span></li>
+        <li><span>React</span><span class="nivel">iniciante</span></li>
+      </ul>
+    </section>
+
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <div class="grade-projetos">
+        <article class="card">
+          <img src="img/projeto3.svg" width="320" height="180" alt="Ilustração de uma janela de código representando o projeto Cinerepertório">
+          <h3>Cinerepertório</h3>
+          <p>Site para organizar e explorar um repertório de filmes.</p>
+          <p class="tecnologias">HTML, CSS, JavaScript</p>
+          <a href="https://github.com/paulino-14">ver no GitHub</a>
+        </article>
+        <article class="card">
+          <img src="img/projeto2.svg" width="320" height="180" alt="Ilustração de uma janela de código representando o projeto Delivery">
+          <h3>Delivery</h3>
+          <p>Página de um serviço de delivery com cardápio e layout responsivo.</p>
+          <p class="tecnologias">HTML, CSS, JavaScript</p>
+          <a href="https://github.com/paulino-14">ver no GitHub</a>
+        </article>
+        <article class="card">
+          <img src="img/projeto1.svg" width="320" height="180" alt="Ilustração de uma janela de código representando um protótipo no Figma">
+          <h3>Protótipo no Figma</h3>
+          <p>Telas de um app desenhadas no Figma, com componentes reutilizáveis.</p>
+          <p class="tecnologias">Figma</p>
+          <a href="#projetos">em breve</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <form id="formContato" novalidate>
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="name" aria-describedby="erroNome">
+          <p class="erro" id="erroNome" role="alert"></p>
+        </div>
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" aria-describedby="erroEmail">
+          <p class="erro" id="erroEmail" role="alert"></p>
+        </div>
+        <div class="campo">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" aria-describedby="erroMensagem"></textarea>
+          <p class="erro" id="erroMensagem" role="alert"></p>
+        </div>
+        <div class="campo campo-check">
+          <input type="checkbox" id="consentimento" name="consentimento" aria-describedby="erroConsentimento">
+          <label for="consentimento">Concordo em compartilhar meus dados para receber resposta.</label>
+          <p class="erro" id="erroConsentimento" role="alert"></p>
+        </div>
+        <p class="aviso">Seus dados serão usados apenas para responder esta mensagem e não serão compartilhados.</p>
+        <button class="botao" type="submit">Enviar mensagem</button>
+        <p class="sucesso" id="msgSucesso" role="status"></p>
+      </form>
+      <p class="links">
+        <a href="https://github.com/paulino-14" rel="noopener">GitHub</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="barra-status">
+    <span>© <span id="ano">2026</span> João Pedro de Souza Paulino</span>
+    <a href="#topo">voltar ao topo</a>
+  </footer>
+</body>
+</html>
